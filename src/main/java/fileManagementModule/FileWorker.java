@@ -16,6 +16,8 @@ public class FileWorker {
             out.write(s);
         } catch (IOException e) {
             OutputDeviceWorker.getDescriber().describeException(e);
+        } catch (NullPointerException e) {
+            OutputDeviceWorker.getDescriber().describeFileNotSpecified();
         }
     }
 
@@ -28,6 +30,8 @@ public class FileWorker {
             }
         } catch (IOException e) {
             OutputDeviceWorker.getDescriber().describeException(e);
+        } catch (NullPointerException e) {
+            OutputDeviceWorker.getDescriber().describeFileNotSpecified();
         }
         return data.toString();
     }

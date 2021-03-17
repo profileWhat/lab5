@@ -1,9 +1,7 @@
 package fileManagementModule;
 
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import clientManagementModule.OutputDeviceWorker;
+import com.google.gson.*;
 import com.google.gson.annotations.Expose;
 import collectionManagementModule.*;
 
@@ -42,9 +40,15 @@ public class JsonWorker {
     }
 
     public Route[] deserializeToRouteArray() {
-        FileWorker fileWorker = new FileWorker(fileName);
-        String json = fileWorker.read();
-        return gson.fromJson(json, Route[].class);
+        Route[] routes = null;
+        try {
+            FileWorker fileWorker = new FileWorker(fileName);
+            String json = fileWorker.read();
+            routes = gson.fromJson(json, Route[].class);
+        } catch (JsonSyntaxException e) {
+            OutputDeviceWorker.getDescriber().describeString("The json file is not working properly, now you are working with an empty collection");
+        }
+        return routes;
     }
 
     public void serializeCollectionToFile(PriorityQueue<Route> collection) {

@@ -14,6 +14,9 @@ public class OutputDeviceWorker {
         return OutputDeviceWorker.describer;
     }
 
+    public void describeFileNotSpecified() {
+        System.out.println("the environment variable is not set, the collection will not be loaded and will not be saved");
+    }
     public void describeString(String s) {
         System.out.println(s);
     }

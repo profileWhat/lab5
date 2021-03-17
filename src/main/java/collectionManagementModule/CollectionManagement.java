@@ -22,9 +22,11 @@ public class CollectionManagement {
     }
 
     public void addRoutes(Route[] routes) {
-        for (Route route : routes) {
-            route.setCreationDate();
-            add(route);
+        if (routes != null) {
+            for (Route route : routes) {
+                route.setCreationDate();
+                add(route);
+            }
         }
     }
 
