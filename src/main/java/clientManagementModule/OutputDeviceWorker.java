@@ -19,7 +19,7 @@ public class OutputDeviceWorker {
     }
 
     public void describeException(Exception e) {
-        System.out.println("Error: " + e.getMessage());
+        System.out.println(e.getMessage());
     }
 
     public void describeCMInfo(String collectionClassName, java.util.Date creationDate, int collectionSize) {
