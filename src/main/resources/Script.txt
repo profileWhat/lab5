@@ -1,0 +1,3 @@
+help
+clear
+execute_script src/main/resources/Script.txt
