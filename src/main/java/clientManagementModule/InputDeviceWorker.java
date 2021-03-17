@@ -84,8 +84,9 @@ public class InputDeviceWorker {
         String regex = "(?:\\w[,./:]?)+";
         Pattern p = Pattern.compile(regex);
         String currentString;
-        do {
-            if (!reader.hasNext()) break;
+        while (true) {
+            if (commandHandler.isFoundExitCommand()) break;
+            if (commandHandler.isExecutingScript()) if (!reader.hasNext()) break;
             currentString = reader.nextLine();
             Matcher matcher = p.matcher(currentString);
             ArrayDeque<String> lineWords = new ArrayDeque<>();
@@ -97,7 +98,7 @@ public class InputDeviceWorker {
             } catch (WrongCommandException | ReuseExecuteScriptException e) {
                 OutputDeviceWorker.getDescriber().describeException(e);
             }
-        } while (!currentString.equals("exit"));
+        }
     }
 
     public Route inputRoute() {

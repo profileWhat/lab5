@@ -67,4 +67,8 @@ public class ClientWorker {
     public int getExecuteDepth() {
         return executeDepth;
     }
+
+    public CommandHandler getCommandHandler() {
+        return commandHandler;
+    }
 }

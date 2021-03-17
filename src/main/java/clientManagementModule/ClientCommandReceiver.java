@@ -34,10 +34,12 @@ public class ClientCommandReceiver {
         try {
             FileInputStream inputStream = new FileInputStream(file);
             ClientWorker scriptClient = new ClientWorker(inputStream, client.getCollectionManagement(), client.getExecuteDepth());
+            scriptClient.getCommandHandler().setExecutingScript(true);
             client.getScriptsNameHashSet().addAll(scriptClient.getScriptsNameHashSet());
             if (client.getScriptsNameHashSet().size() != scriptClient.getExecuteDepth())
                 throw new ReuseExecuteScriptException();
             scriptClient.start();
+            if (scriptClient.getCommandHandler().isFoundExitCommand()) client.getCommandHandler().foundExitCommand();
             InputDeviceWorker.getInputDevice().setReader(client.getReader());
         } catch (IOException e) {
             OutputDeviceWorker.getDescriber().describeException(e);
