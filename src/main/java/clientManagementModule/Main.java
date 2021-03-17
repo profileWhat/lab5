@@ -8,7 +8,8 @@ public class Main {
     static public void main(String[] args) {
         JsonWorker jsonWorker = JsonWorker.getJsonWorker();
         jsonWorker.setFileName("src/main/resources/InputFile.txt");
-        CollectionManagement collectionManagement = JsonWorker.getJsonWorker().deserializeToCM();
+        CollectionManagement collectionManagement = new CollectionManagement();
+        collectionManagement.addRoutes(JsonWorker.getJsonWorker().deserializeToRouteArray());
         ClientWorker clientWorker = new ClientWorker(System.in, collectionManagement, -1);
         clientWorker.start();
     }

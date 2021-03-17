@@ -21,6 +21,12 @@ public class CollectionManagement {
         this.hashSet = new HashSet<>();
     }
 
+    public void addRoutes(Route[] routes) {
+        for (Route route : routes) {
+            add(route);
+        }
+    }
+
     public void add(Route route) {
         int previousSetSize = hashSet.size();
         long currentRandomId = Math.abs(new Random().nextLong());

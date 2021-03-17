@@ -22,7 +22,7 @@ public class FileWorker {
     public String read() {
         StringBuilder data = new StringBuilder();
         try (FileReader in = new FileReader(fileName)) {
-            char[] cBuf = new char[100];
+            char[] cBuf = new char[1];
             while (in.read(cBuf) != -1) {
                 data.append(cBuf);
             }
