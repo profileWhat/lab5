@@ -5,7 +5,9 @@ import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 import collectionManagementModule.Route;
 
-
+/**
+ * The command for remove all element Greater than current Route
+ */
 public class RemoveGreaterCommand implements Command {
     private final CollectionManagement cm;
     private final ClientCommandReceiver cr;
@@ -28,6 +30,6 @@ public class RemoveGreaterCommand implements Command {
 
     @Override
     public boolean withSimpleArgument() {
-        return true;
+        return false;
     }
 }

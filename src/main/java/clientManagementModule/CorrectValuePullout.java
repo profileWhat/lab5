@@ -1,5 +1,9 @@
 package clientManagementModule;
 
+/**
+ * Class for pulling the correct values from the input device
+ */
+
 public class CorrectValuePullout {
     public long getLongValue(String s) throws IncorrectValueException {
         long value;

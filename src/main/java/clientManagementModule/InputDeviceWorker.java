@@ -10,6 +10,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+/**
+ * Class for working with the input device
+ */
 public class InputDeviceWorker {
     private Scanner reader;
     static private InputDeviceWorker inputDeviceWorker;
@@ -106,25 +110,25 @@ public class InputDeviceWorker {
         OutputDeviceWorker.getDescriber().describeString("Enter the route name: ");
         String routeName = reader.nextLine();
 
-        OutputDeviceWorker.getDescriber().describeString("Enter the x coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Integer X coordinate: ");
         int xCoordinate = waitCorrectIntegerValue(reader);
-        OutputDeviceWorker.getDescriber().describeString("Enter the y coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Float Y coordinate: ");
         float yCoordinate = waitCorrectFloatValue(reader);
         Coordinates routeCoordinates = new Coordinates(xCoordinate, yCoordinate);
 
-        OutputDeviceWorker.getDescriber().describeString("Enter the x Location From coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Integer X Location From coordinate: ");
         Integer xFromCoordinate = waitCorrectIntegerValue(reader);
-        OutputDeviceWorker.getDescriber().describeString("Enter the y Location From coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Long Y Location From coordinate: ");
         Long yFromCoordinate = waitCorrectLongValue(reader);
-        OutputDeviceWorker.getDescriber().describeString("Enter the z Location From coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Integer z Location From coordinate: ");
         int zFromCoordinate = waitCorrectIntegerValue(reader);
         LocationFrom routeFrom = new LocationFrom(xFromCoordinate, yFromCoordinate, zFromCoordinate);
 
-        OutputDeviceWorker.getDescriber().describeString("Enter the x Location To coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Long X Location To coordinate: ");
         long xToCoordinate = waitCorrectIntegerValue(reader);
-        OutputDeviceWorker.getDescriber().describeString("Enter the y Location To coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Double Y Location To coordinate: ");
         double yToCoordinate = waitCorrectDoubleValue(reader);
-        OutputDeviceWorker.getDescriber().describeString("Enter the z Location To coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Integer Z Location To coordinate: ");
         Integer zToCoordinate = waitCorrectIntegerValue(reader);
         OutputDeviceWorker.getDescriber().describeString("Enter the name of Location To: ");
         String nameLocationTo = reader.nextLine();

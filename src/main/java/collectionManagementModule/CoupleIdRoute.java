@@ -1,5 +1,8 @@
 package collectionManagementModule;
 
+/**
+ * Couple Id-Route class
+ */
 public class CoupleIdRoute {
     private final Long id;
     private final Route route;

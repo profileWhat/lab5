@@ -8,6 +8,9 @@ import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
 
+/**
+ * Class of working with the client
+ */
 public class ClientWorker {
     private final CommandHandler commandHandler;
     private final Scanner reader;
@@ -16,7 +19,7 @@ public class ClientWorker {
     private final HashSet<String> ScriptsNameHashSet;
     private final int executeDepth;
 
-    ClientWorker(InputStream inputStream, CollectionManagement collectionManagement, int executeDepth) {
+    public ClientWorker(InputStream inputStream, CollectionManagement collectionManagement, int executeDepth) {
         this.reader = new Scanner(inputStream);
         this.collectionManagement = collectionManagement;
         this.commandInvoker = new CommandInvoker();
@@ -43,6 +46,8 @@ public class ClientWorker {
     }
 
     public void start() {
+        if (executeDepth == 0 ) OutputDeviceWorker.getDescriber().describeString("Programme start");
+        else OutputDeviceWorker.getDescriber().describeString("Start execute Script");
         InputDeviceWorker.getInputDevice().setReader(reader);
         InputDeviceWorker.getInputDevice().readCommands(commandHandler);
         reader.close();

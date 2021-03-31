@@ -2,7 +2,9 @@ package clientManagementModule;
 
 import collectionManagementModule.Route;
 
-
+/**
+ * Class for working with the input device
+ */
 public class OutputDeviceWorker {
     private static OutputDeviceWorker describer;
 

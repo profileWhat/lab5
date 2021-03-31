@@ -7,12 +7,15 @@ import collectionManagementModule.*;
 
 import java.util.PriorityQueue;
 
+/**
+ * Class for work de/deserialize json file
+ */
 public class JsonWorker {
-    private String fileName;
     private static JsonWorker jsonWorker;
     private final Gson gson;
-
+    private boolean IsIncorrectJsonFile;
     private JsonWorker() {
+        IsIncorrectJsonFile = false;
         this.gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .setExclusionStrategies(new ExclusionStrategy() {
@@ -35,27 +38,26 @@ public class JsonWorker {
 
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
     public Route[] deserializeToRouteArray() {
         Route[] routes = null;
         try {
-            FileWorker fileWorker = new FileWorker(fileName);
-            String json = fileWorker.read();
+            String json = FileWorker.getFileWorker().read();
             routes = gson.fromJson(json, Route[].class);
         } catch (JsonSyntaxException e) {
+            IsIncorrectJsonFile = true;
             OutputDeviceWorker.getDescriber().describeString("The json file is not working properly, now you are working with an empty collection");
         }
         return routes;
     }
 
     public void serializeCollectionToFile(PriorityQueue<Route> collection) {
-        String json = gson.toJson(collection);
-        FileWorker fileWorker = new FileWorker(fileName);
-        fileWorker.write(json);
+        if (!IsIncorrectJsonFile) {
+            String json = gson.toJson(collection);
+            FileWorker.getFileWorker().write(json);
+        }
     }
 
-
+    public boolean isIncorrectJsonFile() {
+        return IsIncorrectJsonFile;
+    }
 }

@@ -2,6 +2,10 @@ package clientManagementModule;
 
 import java.util.ArrayDeque;
 
+
+/**
+ * Class for processing input commands
+ */
 public class CommandHandler {
     private final CommandInvoker commandInvoker;
     private boolean isFoundExitCommand;

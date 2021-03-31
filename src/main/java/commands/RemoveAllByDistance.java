@@ -4,6 +4,9 @@ import clientManagementModule.ClientCommandReceiver;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
+/**
+ * The command for remove all element by distance
+ */
 public class RemoveAllByDistance implements Command {
     private final CollectionManagement cm;
     private final ClientCommandReceiver cr;

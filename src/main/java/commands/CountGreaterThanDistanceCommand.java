@@ -4,6 +4,10 @@ import clientManagementModule.ClientCommandReceiver;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
+/**
+ * The command for count element witch have distance greater than input distance
+ */
+
 public class CountGreaterThanDistanceCommand implements Command {
     private final CollectionManagement cm;
     private final ClientCommandReceiver cr;

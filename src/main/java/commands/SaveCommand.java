@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
+/**
+ * The command for save collection to file
+ */
 public class SaveCommand implements Command {
     private final CollectionManagement cm;
 

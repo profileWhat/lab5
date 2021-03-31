@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
+/**
+ * The command for clear collection
+ */
 public class ClearCommand implements Command {
     private final CollectionManagement cm;
 

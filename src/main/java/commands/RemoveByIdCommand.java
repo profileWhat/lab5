@@ -4,7 +4,9 @@ import clientManagementModule.ClientCommandReceiver;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
-
+/**
+ * The command for remove Route by id
+ */
 public class RemoveByIdCommand implements Command {
     private final CollectionManagement cm;
     private final ClientCommandReceiver cr;

@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
+/**
+ * The command for get info about collection
+ */
 public class InfoCommand implements Command {
     private final CollectionManagement cm;
 

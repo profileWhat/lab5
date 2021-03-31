@@ -1,5 +1,8 @@
 package collectionManagementModule;
 
+/**
+ * Route class
+ */
 
 import com.google.gson.annotations.Expose;
 

@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.ClientCommandReceiver;
 import clientManagementModule.OutputDeviceWorker;
 
+/**
+ * The command for finish programme
+ */
 public class ExitCommand implements Command {
     ClientCommandReceiver cr;
 

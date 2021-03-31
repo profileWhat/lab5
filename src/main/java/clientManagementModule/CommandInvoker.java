@@ -5,7 +5,9 @@ import java.util.HashMap;
 import commands.Command;
 
 /**
- * the Invoker class
+ * Invoker class
+ *
+ * Class for invoke specific commands
  */
 public class CommandInvoker {
     private final HashMap<String, Command> commandMap = new HashMap<>();

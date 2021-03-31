@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.ClientCommandReceiver;
 import clientManagementModule.OutputDeviceWorker;
 
+/**
+ * The command for execute script
+ */
 public class ExecuteScriptCommand implements Command {
     private final ClientCommandReceiver cr;
 

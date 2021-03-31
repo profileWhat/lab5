@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.ClientCommandReceiver;
 import clientManagementModule.OutputDeviceWorker;
 
+/**
+ * The command for get reference
+ */
 public class HelpCommand implements Command {
     private final ClientCommandReceiver cr;
 

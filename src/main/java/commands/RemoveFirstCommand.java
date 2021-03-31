@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
+/**
+ * The command for remove first element of collection
+ */
 public class RemoveFirstCommand implements Command {
     private final CollectionManagement cm;
 

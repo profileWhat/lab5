@@ -1,10 +1,13 @@
 package collectionManagementModule;
 
+/**
+ * Location to class
+ */
 public class LocationTo {
-    private long x;
-    private double y;
-    private Integer z; //Поле не может быть null
-    private String name; //Поле не может быть null
+    private final long x;
+    private final double y;
+    private final Integer z; //Поле не может быть null
+    private final String name; //Поле не может быть null
 
     public LocationTo(long x, double y, Integer z, String name) {
         this.x = x;

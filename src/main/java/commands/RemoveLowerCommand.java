@@ -5,7 +5,9 @@ import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 import collectionManagementModule.Route;
 
-
+/**
+ * Command for remove all element Lower than current Route
+ */
 public class RemoveLowerCommand implements Command {
     private final CollectionManagement cm;
     private final ClientCommandReceiver cr;
@@ -28,6 +30,6 @@ public class RemoveLowerCommand implements Command {
 
     @Override
     public boolean withSimpleArgument() {
-        return true;
+        return false;
     }
 }

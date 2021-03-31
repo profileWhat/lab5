@@ -1,5 +1,8 @@
 package collectionManagementModule;
 
+/**
+ * Coordinate class
+ */
 public class Coordinates {
     private int x; //Максимальное значение поля: 546
     private float y;

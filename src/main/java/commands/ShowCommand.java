@@ -3,6 +3,9 @@ package commands;
 import clientManagementModule.OutputDeviceWorker;
 import collectionManagementModule.CollectionManagement;
 
+/**
+ * The command for show elements of collection to file
+ */
 public class ShowCommand implements Command {
     private final CollectionManagement cm;
 

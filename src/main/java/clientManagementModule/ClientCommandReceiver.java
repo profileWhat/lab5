@@ -10,7 +10,9 @@ import java.io.IOException;
 
 
 /**
- * The Receiver class
+ * Receiver class
+ *
+ * receiver class that works with the client and with the I/O device
  */
 
 public class ClientCommandReceiver {
@@ -41,6 +43,7 @@ public class ClientCommandReceiver {
             scriptClient.start();
             if (scriptClient.getCommandHandler().isFoundExitCommand()) client.getCommandHandler().foundExitCommand();
             InputDeviceWorker.getInputDevice().setReader(client.getReader());
+            if (scriptClient.getExecuteDepth() == 1) OutputDeviceWorker.getDescriber().describeString("Script executed");
         } catch (IOException e) {
             OutputDeviceWorker.getDescriber().describeException(e);
         }
