@@ -11,14 +11,26 @@ public class FileWorker {
     private String fileName;
     private static FileWorker fileWorker;
     private boolean isNotWorkedFile;
+
     private FileWorker() {
         this.isNotWorkedFile = false;
     }
 
+    /**
+     * Static Method to init File Worker for the first time and then get this File Worker.
+     *
+     * @return File Worker
+     */
     public static FileWorker getFileWorker() {
         if (FileWorker.fileWorker == null) FileWorker.fileWorker = new FileWorker();
         return FileWorker.fileWorker;
     }
+
+    /**
+     * Method for set file name
+     *
+     * @param fileName to set it
+     */
     public void setFileName(String fileName) {
         this.fileName = fileName;
         if (fileName.contains("\\dev\\") || fileName.contains("/dev/")) {
@@ -27,6 +39,11 @@ public class FileWorker {
         }
     }
 
+    /**
+     * Method for write to file
+     *
+     * @param s for write it to file
+     */
     public void write(String s) {
         if (!isNotWorkedFile) {
             try (OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(fileName))) {
@@ -41,6 +58,11 @@ public class FileWorker {
         }
     }
 
+    /**
+     * Method for read string into file
+     *
+     * @return read string
+     */
     public String read() {
         StringBuilder data = new StringBuilder();
         if (!isNotWorkedFile) {
@@ -61,6 +83,11 @@ public class FileWorker {
 
     }
 
+    /**
+     * Method for return is Not Worked File flag
+     *
+     * @return is not worked file flag
+     */
     public boolean isNotWorkedFile() {
         return isNotWorkedFile;
     }

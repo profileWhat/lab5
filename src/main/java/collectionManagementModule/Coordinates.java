@@ -4,18 +4,34 @@ package collectionManagementModule;
  * Coordinate class
  */
 public class Coordinates {
-    private int x; //Максимальное значение поля: 546
-    private float y;
+    private final int x; //Максимальное значение поля: 546
+    private final float y;
 
+    /**
+     * Constructor for load fields
+     *
+     * @param x for load to coordinates
+     * @param y for load to coordinates
+     */
     public Coordinates(int x, float y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Method for get Y
+     *
+     * @return Y
+     */
     public float getY() {
         return y;
     }
 
+    /**
+     * Method for get X
+     *
+     * @return X
+     */
     public int getX() {
         return x;
     }

@@ -17,14 +17,21 @@ public class ClientWorker {
     private final CollectionManagement collectionManagement;
     private final CommandInvoker commandInvoker;
     private final HashSet<String> ScriptsNameHashSet;
-    private final int executeDepth;
+    private final int executionDepth;
 
+    /**
+     * Constructor of Client Worker. Load all param, init Client Command Receiver, Command Handler to work with input Command, Reader to read Values from file and register Command.
+     *
+     * @param inputStream          to load input Stream to Client Worker
+     * @param collectionManagement to load collection to Client Worker
+     * @param executeDepth         to detect the depth execution
+     */
     public ClientWorker(InputStream inputStream, CollectionManagement collectionManagement, int executeDepth) {
         this.reader = new Scanner(inputStream);
         this.collectionManagement = collectionManagement;
         this.commandInvoker = new CommandInvoker();
         this.ScriptsNameHashSet = new HashSet<>();
-        this.executeDepth = executeDepth + 1;
+        this.executionDepth = executeDepth + 1;
         ClientCommandReceiver clientReceiver = new ClientCommandReceiver(this);
         commandInvoker.register("info", new InfoCommand(collectionManagement));
         commandInvoker.register("show", new ShowCommand(collectionManagement));
@@ -45,34 +52,67 @@ public class ClientWorker {
         this.commandHandler = new CommandHandler(commandInvoker);
     }
 
+    /**
+     * Method for start Client and programme.
+     */
     public void start() {
-        if (executeDepth == 0 ) OutputDeviceWorker.getDescriber().describeString("Programme start");
+        if (executionDepth == 0) OutputDeviceWorker.getDescriber().describeString("Programme start");
         else OutputDeviceWorker.getDescriber().describeString("Start execute Script");
         InputDeviceWorker.getInputDevice().setReader(reader);
         InputDeviceWorker.getInputDevice().readCommands(commandHandler);
         reader.close();
     }
 
+    /**
+     * Method for get Collection Management
+     *
+     * @return Collection Management
+     */
     public CollectionManagement getCollectionManagement() {
         return collectionManagement;
     }
 
+    /**
+     * Method for get Reader
+     *
+     * @return Reader
+     */
     public Scanner getReader() {
         return reader;
     }
 
+    /**
+     * Method for get Command Invoker
+     *
+     * @return Command Invoker
+     */
     public CommandInvoker getCommandInvoker() {
         return commandInvoker;
     }
 
+    /**
+     * Method for get Script Name Hash Set
+     *
+     * @return Script Name Hash Set
+     */
     public HashSet<String> getScriptsNameHashSet() {
         return ScriptsNameHashSet;
     }
 
-    public int getExecuteDepth() {
-        return executeDepth;
+    /**
+     * Method for get Execution Depth
+     *
+     * @return Execution Depth
+     */
+    public int getExecutionDepth() {
+        return executionDepth;
     }
 
+    /**
+     * Method for get Command Handler
+     *
+     * @return Command Handler
+     */
     public CommandHandler getCommandHandler() {
         return commandHandler;
     }

@@ -5,6 +5,13 @@ package clientManagementModule;
  */
 
 public class CorrectValuePullout {
+    /**
+     * Method for get Long value.
+     *
+     * @param s . It param will convert to Long value.
+     * @return Long value.
+     * @throws IncorrectValueException if param is not Long.
+     */
     public long getLongValue(String s) throws IncorrectValueException {
         long value;
         try {
@@ -15,6 +22,13 @@ public class CorrectValuePullout {
         return value;
     }
 
+    /**
+     * Method for get Double value.
+     *
+     * @param s . It param will convert to Double value.
+     * @return Double value.
+     * @throws IncorrectValueException if param is not Double.
+     */
     public double getDoubleValue(String s) throws IncorrectValueException {
         double value;
         try {
@@ -25,6 +39,13 @@ public class CorrectValuePullout {
         return value;
     }
 
+    /**
+     * Method for get Float value.
+     *
+     * @param s . It param will convert to Float value.
+     * @return Float value.
+     * @throws IncorrectValueException if param is not Float.
+     */
     public float getFloatValue(String s) throws IncorrectValueException {
         float value;
         try {
@@ -35,6 +56,13 @@ public class CorrectValuePullout {
         return value;
     }
 
+    /**
+     * Method for get Integer value.
+     *
+     * @param s . It param will convert to Integer value.
+     * @return Double value.
+     * @throws IncorrectValueException if param is not Integer.
+     */
     public int getIntegerValue(String s) throws IncorrectValueException {
         int value;
         try {

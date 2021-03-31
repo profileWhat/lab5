@@ -14,6 +14,7 @@ public class JsonWorker {
     private static JsonWorker jsonWorker;
     private final Gson gson;
     private boolean IsIncorrectJsonFile;
+
     private JsonWorker() {
         IsIncorrectJsonFile = false;
         this.gson = new GsonBuilder()
@@ -32,12 +33,22 @@ public class JsonWorker {
                 .create();
     }
 
+    /**
+     * Static Method to init Json Worker for the first time and then get this Json Worker.
+     *
+     * @return Json Worker
+     */
     public static JsonWorker getJsonWorker() {
         if (JsonWorker.jsonWorker == null) JsonWorker.jsonWorker = new JsonWorker();
         return JsonWorker.jsonWorker;
 
     }
 
+    /**
+     * Method for deserialize file to Route Array
+     *
+     * @return Array of route
+     */
     public Route[] deserializeToRouteArray() {
         Route[] routes = null;
         try {
@@ -50,6 +61,11 @@ public class JsonWorker {
         return routes;
     }
 
+    /**
+     * Method for serialize collection to file
+     *
+     * @param collection for serialize it to file
+     */
     public void serializeCollectionToFile(PriorityQueue<Route> collection) {
         if (!IsIncorrectJsonFile) {
             String json = gson.toJson(collection);
@@ -57,6 +73,11 @@ public class JsonWorker {
         }
     }
 
+    /**
+     * Method for return is incorrect json file flag
+     *
+     * @return is incorrect json file flag
+     */
     public boolean isIncorrectJsonFile() {
         return IsIncorrectJsonFile;
     }

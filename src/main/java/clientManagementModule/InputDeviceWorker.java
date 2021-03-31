@@ -23,15 +23,31 @@ public class InputDeviceWorker {
         this.correctValuePullout = new CorrectValuePullout();
     }
 
+    /**
+     * Method for set Reader
+     *
+     * @param reader for set Reader
+     */
     public void setReader(Scanner reader) {
         this.reader = reader;
     }
 
+    /**
+     * Static Method to init Input Device for the first time and then get this Input Device.
+     *
+     * @return Input Device
+     */
     public static InputDeviceWorker getInputDevice() {
         if (InputDeviceWorker.inputDeviceWorker == null) InputDeviceWorker.inputDeviceWorker = new InputDeviceWorker();
         return InputDeviceWorker.inputDeviceWorker;
     }
 
+    /**
+     * Method for wait and return Double Value
+     *
+     * @param reader to read input string
+     * @return Double Value
+     */
     public Double waitCorrectDoubleValue(Scanner reader) {
         Double value = null;
         while (value == null) {
@@ -45,6 +61,12 @@ public class InputDeviceWorker {
         return (value);
     }
 
+    /**
+     * Method for wait and return Long Value
+     *
+     * @param reader to read input string
+     * @return Long Value
+     */
     public Long waitCorrectLongValue(Scanner reader) {
         Long value = null;
         while (value == null) {
@@ -58,6 +80,12 @@ public class InputDeviceWorker {
         return (value);
     }
 
+    /**
+     * Method for wait and return Integer Value
+     *
+     * @param reader to read input string
+     * @return Integer Value
+     */
     public Integer waitCorrectIntegerValue(Scanner reader) {
         Integer value = null;
         while (value == null) {
@@ -71,6 +99,12 @@ public class InputDeviceWorker {
         return (value);
     }
 
+    /**
+     * Method for wait and return Float Value
+     *
+     * @param reader to read input string
+     * @return Float Value
+     */
     public Float waitCorrectFloatValue(Scanner reader) {
         Float value = null;
         while (value == null) {
@@ -84,6 +118,11 @@ public class InputDeviceWorker {
         return (value);
     }
 
+    /**
+     * Method for read words of command to Array Deque and then enable them for Command Handler
+     *
+     * @param commandHandler to work with input command
+     */
     public void readCommands(CommandHandler commandHandler) {
         String regex = "(?:\\w[,./:]?)+";
         Pattern p = Pattern.compile(regex);
@@ -105,6 +144,11 @@ public class InputDeviceWorker {
         }
     }
 
+    /**
+     * Method for input Route
+     *
+     * @return Route
+     */
     public Route inputRoute() {
 
         OutputDeviceWorker.getDescriber().describeString("Enter the route name: ");
@@ -120,7 +164,7 @@ public class InputDeviceWorker {
         Integer xFromCoordinate = waitCorrectIntegerValue(reader);
         OutputDeviceWorker.getDescriber().describeString("Enter the Long Y Location From coordinate: ");
         Long yFromCoordinate = waitCorrectLongValue(reader);
-        OutputDeviceWorker.getDescriber().describeString("Enter the Integer z Location From coordinate: ");
+        OutputDeviceWorker.getDescriber().describeString("Enter the Integer Z Location From coordinate: ");
         int zFromCoordinate = waitCorrectIntegerValue(reader);
         LocationFrom routeFrom = new LocationFrom(xFromCoordinate, yFromCoordinate, zFromCoordinate);
 
